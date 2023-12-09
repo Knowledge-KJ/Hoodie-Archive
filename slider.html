@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #banner img {
+            display: none;
+        }
+        
+        #banner img.active {
+            display: block;
+        }
+        
+        img {
+            width: 250px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="banner">
+        <img src="image 1.jpg" id="image1" class="active">
+        <img src="image 2.jpg" id="image2">
+        <img src="image 3.jpg" id="image3">
+    </div>
+
+
+    <script>
+        var current = 0;
+        var images = document.getElementsByTagName("img");
+        var total = images.length;
+
+        function next() {
+            images[current].classList.remove("active");
+            current = (current + 1) % total;
+            images[current].classList.add("active");
+        }
+        setInterval(next, 6000);
+    </script>
+
+
+</body>
+
+</html>
